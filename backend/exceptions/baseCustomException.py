@@ -1,4 +1,4 @@
-class baseException(Exception):
+class Base_exception(Exception):
     message = "baseCaseException"
     errorCode = 400
     def __init__(self,message = None, errorCode = None):

@@ -1,9 +1,11 @@
-from .baseCustomException import baseException
+from .baseCustomException import Base_exception
 
 
-class missingFieldException(baseException):
-    message = "missing one or more required field"
+class Missing_field_exception(Base_exception):
     errorCode = 400
-class invalidJsonFormatException(baseException):
+    def __init__(self,missing_args):
+        super().__init__(f"missing {','.join(missing_args)}")
+    
+class Invalid_json_format_exception(Base_exception):
     message = "invalid json format"
     errorCode = 400

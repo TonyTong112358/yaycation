@@ -15,7 +15,7 @@ class Account(View):
         required = ["username","email","password","phone_number"]
         try:
             data = validate_post_field(data,required)
-        except invalidJsonFormatException as e:
-
+        except Missing_field_exception as e:
+            
             return JsonResponse({"message": e.message},status = e.errorCode)
         return JsonResponse(data = data, status = 201)
